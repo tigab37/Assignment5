@@ -1,0 +1,83 @@
+import tester.*;                // The tester library
+import javalib.worldimages.*;   // images, like RectangleImage or OverlayImages
+import javalib.funworld.*;      // the abstract World class and the big-bang library
+import java.awt.Color;          // general colors (as triples of red,green,blue values)
+                                // and predefined colors (Red, Green, Yellow, Blue, Black, White)
+
+// Fish interface
+interface IFish {}
+
+
+// Fish abstraction
+abstract class AFish implements IFish {
+  Posn loc;
+  boolean dir;
+  int size;
+  boolean alive;
+  
+  // constructor (probably delete)
+  AFish(Posn loc, boolean dir, int size, boolean alive) {
+    this.loc = loc;
+    this.dir = dir;
+    this.size = size;
+    this.alive = alive;
+  }
+
+}
+
+
+// player class
+class Player extends AFish {
+  
+  // normal constructor
+  Player(Posn loc, boolean dir, int size, boolean alive) {
+    super(loc, dir, size, alive);
+  }
+}
+
+// enemy class
+class Enemy extends AFish {
+  
+  // normal constructor
+  Enemy(Posn loc, boolean dir, int size, boolean alive) {
+    super(loc, dir, size, alive);
+  }
+}
+
+
+
+
+interface ILoEnemy {}
+
+class ConsLoEnemy implements ILoEnemy {
+  Enemy first;
+  ILoEnemy rest;
+  
+  // constructor
+  ConsLoEnemy(Enemy first, ILoEnemy rest) {
+    this.first = first;
+    this.rest = rest;
+  }  
+}
+
+
+class MtLoEnemy implements ILoEnemy { 
+  // constructor
+  MtLoEnemy() {
+  } 
+}
+
+
+
+
+
+
+FishyGame extends World {
+  Player player;
+  ILoEnemy enemies;
+  
+  public FishyGame
+}
+
+
+
